@@ -12,13 +12,17 @@
  * details.
  */
 
-package com.liferay.message.boards.comment.exportimport.xstream.configurator;
+package com.liferay.message.boards.xstream.configurator;
 
 import com.liferay.exportimport.kernel.xstream.XStreamAlias;
 import com.liferay.exportimport.kernel.xstream.XStreamConverter;
 import com.liferay.exportimport.kernel.xstream.XStreamType;
 import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portlet.messageboards.model.impl.MBBanImpl;
+import com.liferay.portlet.messageboards.model.impl.MBCategoryImpl;
 import com.liferay.portlet.messageboards.model.impl.MBMessageImpl;
+import com.liferay.portlet.messageboards.model.impl.MBThreadFlagImpl;
+import com.liferay.portlet.messageboards.model.impl.MBThreadImpl;
 import com.liferay.xstream.configurator.XStreamConfigurator;
 
 import java.util.List;
@@ -30,8 +34,7 @@ import org.osgi.service.component.annotations.Component;
  * @author Mate Thurzo
  */
 @Component(immediate = true, service = XStreamConfigurator.class)
-public class MessageBoardsCommentXStreamConfigurator
-	implements XStreamConfigurator {
+public class MessageBoardsXStreamConfigurator implements XStreamConfigurator {
 
 	@Override
 	public List<XStreamType> getAllowedXStreamTypes() {
@@ -51,7 +54,11 @@ public class MessageBoardsCommentXStreamConfigurator
 	@Activate
 	protected void activate() {
 		_xStreamAliases = new XStreamAlias[] {
-			new XStreamAlias(MBMessageImpl.class, "MBMessage")
+			new XStreamAlias(MBBanImpl.class, "MBBan"),
+			new XStreamAlias(MBCategoryImpl.class, "MBCategory"),
+			new XStreamAlias(MBMessageImpl.class, "MBMessage"),
+			new XStreamAlias(MBThreadImpl.class, "MBThread"),
+			new XStreamAlias(MBThreadFlagImpl.class, "MBThreadFlag")
 		};
 	}
 
