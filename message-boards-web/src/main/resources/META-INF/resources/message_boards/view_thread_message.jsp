@@ -172,6 +172,7 @@ MBThread thread = (MBThread)request.getAttribute("edit_message.jsp-thread");
 								<liferay-ui:ratings
 									className="<%= MBMessage.class.getName() %>"
 									classPK="<%= message.getMessageId() %>"
+									inTrash="<%= message.isInTrash() %>"
 								/>
 							</div>
 						</c:if>
