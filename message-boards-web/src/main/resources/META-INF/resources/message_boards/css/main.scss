@@ -105,6 +105,14 @@
 		padding-left: 10px;
 	}
 
+	.message-content {
+		word-break: break-all;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
 	.thread-bottom, .thread-top {
 		padding: 3px 5px;
 	}
