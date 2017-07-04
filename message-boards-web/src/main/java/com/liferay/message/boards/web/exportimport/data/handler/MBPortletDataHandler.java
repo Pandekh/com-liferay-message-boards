@@ -96,7 +96,8 @@ public class MBPortletDataHandler extends BasePortletDataHandler {
 		setExportControls(
 			new PortletDataHandlerBoolean(
 				NAMESPACE, "messages", true, false, null,
-				MBMessage.class.getName()),
+				MBMessage.class.getName(),
+				StagedModelType.REFERRER_CLASS_NAME_ALL),
 			new PortletDataHandlerBoolean(
 				NAMESPACE, "thread-flags", true, false, null,
 				MBThreadFlag.class.getName()),
