@@ -25,6 +25,7 @@ if (Validator.isNull(body)) {
 }
 
 Editor editor = InputEditorTag.getEditor(request, PropsUtil.get(MBUtil.BB_CODE_EDITOR_WYSIWYG_IMPL_KEY));
+
 String bbcodeEditorName = editor.getName();
 
 if (bbcodeEditorName.equals("bbcode")) {
