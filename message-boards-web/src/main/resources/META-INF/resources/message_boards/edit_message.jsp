@@ -400,7 +400,6 @@ if (portletTitleBasedNavigation) {
 
 							try {
 								String priorityName = priority[0];
-								String priorityImage = priority[1];
 								double priorityValue = GetterUtil.getDouble(priority[2]);
 
 								if (priorityValue > 0) {
