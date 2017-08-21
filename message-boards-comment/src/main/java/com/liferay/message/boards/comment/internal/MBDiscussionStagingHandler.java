@@ -61,9 +61,8 @@ public class MBDiscussionStagingHandler implements DiscussionStagingHandler {
 			return;
 		}
 
-		long groupId = mbDiscussion.getGroupId();
-
-		Group group = GroupLocalServiceUtil.fetchGroup(groupId);
+		Group group = GroupLocalServiceUtil.fetchGroup(
+			mbDiscussion.getGroupId());
 
 		if ((group != null) && group.isControlPanel()) {
 			return;
