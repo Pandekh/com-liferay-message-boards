@@ -142,7 +142,9 @@ public class MBStatsUserLocalServiceImpl
 
 	@Override
 	public long getMessageCountByGroupId(long groupId) {
-		DynamicQuery dynamicQuery = mbStatsUserLocalService.dynamicQuery();
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+			MBStatsUser.class, MBStatsUserImpl.TABLE_NAME,
+			ClassLoaderUtil.getPortalClassLoader());
 
 		Projection projection = ProjectionFactoryUtil.sum("messageCount");
 
@@ -163,7 +165,9 @@ public class MBStatsUserLocalServiceImpl
 
 	@Override
 	public long getMessageCountByUserId(long userId) {
-		DynamicQuery dynamicQuery = mbStatsUserLocalService.dynamicQuery();
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+			MBStatsUser.class, MBStatsUserImpl.TABLE_NAME,
+			ClassLoaderUtil.getPortalClassLoader());
 
 		Projection projection = ProjectionFactoryUtil.sum("messageCount");
 
