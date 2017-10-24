@@ -16,7 +16,6 @@ package com.liferay.message.boards.service;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.message.boards.kernel.model.MBStatsUser;
 import com.liferay.message.boards.model.MBStatsUser;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -37,7 +36,6 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,8 +69,6 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public MBStatsUser addMBStatsUser(MBStatsUser mbStatsUser);
-
-	public MBStatsUser addStatsUser(long groupId, long userId);
 
 	/**
 	* Creates a new message boards stats user with the primary key. Does not add the message boards stats user to the database.
@@ -108,14 +104,6 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	@Override
 	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
 		throws PortalException;
-
-	public void deleteStatsUser(long statsUserId) throws PortalException;
-
-	public void deleteStatsUser(MBStatsUser statsUser);
-
-	public void deleteStatsUsersByGroupId(long groupId);
-
-	public void deleteStatsUsersByUserId(long userId);
 
 	public DynamicQuery dynamicQuery();
 
@@ -185,9 +173,6 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Date getLastPostDateByUserId(long groupId, long userId);
-
 	/**
 	* Returns the message boards stats user with the primary key.
 	*
@@ -221,12 +206,6 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getMBStatsUsersCount();
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public long getMessageCountByGroupId(long groupId);
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public long getMessageCountByUserId(long userId);
-
 	/**
 	* Returns the OSGi service identifier.
 	*
@@ -239,20 +218,6 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public MBStatsUser getStatsUser(long groupId, long userId);
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<MBStatsUser> getStatsUsersByGroupId(long groupId, int start,
-		int end) throws PortalException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getStatsUsersByGroupIdCount(long groupId)
-		throws PortalException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<MBStatsUser> getStatsUsersByUserId(long userId);
-
 	/**
 	* Updates the message boards stats user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -261,12 +226,4 @@ public interface MBStatsUserLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public MBStatsUser updateMBStatsUser(MBStatsUser mbStatsUser);
-
-	public MBStatsUser updateStatsUser(long groupId, long userId);
-
-	public MBStatsUser updateStatsUser(long groupId, long userId,
-		Date lastPostDate);
-
-	public MBStatsUser updateStatsUser(long groupId, long userId,
-		int messageCount, Date lastPostDate);
 }

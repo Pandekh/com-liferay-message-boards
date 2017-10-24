@@ -40,15 +40,9 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @return the message boards stats user that was added
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser addMBStatsUser(
-		com.liferay.message.boards.kernel.model.MBStatsUser mbStatsUser) {
+	public com.liferay.message.boards.model.MBStatsUser addMBStatsUser(
+		com.liferay.message.boards.model.MBStatsUser mbStatsUser) {
 		return _mbStatsUserLocalService.addMBStatsUser(mbStatsUser);
-	}
-
-	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser addStatsUser(
-		long groupId, long userId) {
-		return _mbStatsUserLocalService.addStatsUser(groupId, userId);
 	}
 
 	/**
@@ -58,7 +52,7 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @return the new message boards stats user
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser createMBStatsUser(
+	public com.liferay.message.boards.model.MBStatsUser createMBStatsUser(
 		long statsUserId) {
 		return _mbStatsUserLocalService.createMBStatsUser(statsUserId);
 	}
@@ -71,7 +65,7 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @throws PortalException if a message boards stats user with the primary key could not be found
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser deleteMBStatsUser(
+	public com.liferay.message.boards.model.MBStatsUser deleteMBStatsUser(
 		long statsUserId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _mbStatsUserLocalService.deleteMBStatsUser(statsUserId);
@@ -84,8 +78,8 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @return the message boards stats user that was removed
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser deleteMBStatsUser(
-		com.liferay.message.boards.kernel.model.MBStatsUser mbStatsUser) {
+	public com.liferay.message.boards.model.MBStatsUser deleteMBStatsUser(
+		com.liferay.message.boards.model.MBStatsUser mbStatsUser) {
 		return _mbStatsUserLocalService.deleteMBStatsUser(mbStatsUser);
 	}
 
@@ -97,28 +91,6 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 		com.liferay.portal.kernel.model.PersistedModel persistedModel)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _mbStatsUserLocalService.deletePersistedModel(persistedModel);
-	}
-
-	@Override
-	public void deleteStatsUser(long statsUserId)
-		throws com.liferay.portal.kernel.exception.PortalException {
-		_mbStatsUserLocalService.deleteStatsUser(statsUserId);
-	}
-
-	@Override
-	public void deleteStatsUser(
-		com.liferay.message.boards.kernel.model.MBStatsUser statsUser) {
-		_mbStatsUserLocalService.deleteStatsUser(statsUser);
-	}
-
-	@Override
-	public void deleteStatsUsersByGroupId(long groupId) {
-		_mbStatsUserLocalService.deleteStatsUsersByGroupId(groupId);
-	}
-
-	@Override
-	public void deleteStatsUsersByUserId(long userId) {
-		_mbStatsUserLocalService.deleteStatsUsersByUserId(userId);
 	}
 
 	@Override
@@ -207,7 +179,7 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	}
 
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser fetchMBStatsUser(
+	public com.liferay.message.boards.model.MBStatsUser fetchMBStatsUser(
 		long statsUserId) {
 		return _mbStatsUserLocalService.fetchMBStatsUser(statsUserId);
 	}
@@ -222,11 +194,6 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 		return _mbStatsUserLocalService.getIndexableActionableDynamicQuery();
 	}
 
-	@Override
-	public java.util.Date getLastPostDateByUserId(long groupId, long userId) {
-		return _mbStatsUserLocalService.getLastPostDateByUserId(groupId, userId);
-	}
-
 	/**
 	* Returns the message boards stats user with the primary key.
 	*
@@ -235,7 +202,7 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @throws PortalException if a message boards stats user with the primary key could not be found
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser getMBStatsUser(
+	public com.liferay.message.boards.model.MBStatsUser getMBStatsUser(
 		long statsUserId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _mbStatsUserLocalService.getMBStatsUser(statsUserId);
@@ -253,7 +220,7 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @return the range of message boards stats users
 	*/
 	@Override
-	public java.util.List<com.liferay.message.boards.kernel.model.MBStatsUser> getMBStatsUsers(
+	public java.util.List<com.liferay.message.boards.model.MBStatsUser> getMBStatsUsers(
 		int start, int end) {
 		return _mbStatsUserLocalService.getMBStatsUsers(start, end);
 	}
@@ -266,16 +233,6 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	@Override
 	public int getMBStatsUsersCount() {
 		return _mbStatsUserLocalService.getMBStatsUsersCount();
-	}
-
-	@Override
-	public long getMessageCountByGroupId(long groupId) {
-		return _mbStatsUserLocalService.getMessageCountByGroupId(groupId);
-	}
-
-	@Override
-	public long getMessageCountByUserId(long userId) {
-		return _mbStatsUserLocalService.getMessageCountByUserId(userId);
 	}
 
 	/**
@@ -295,32 +252,6 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 		return _mbStatsUserLocalService.getPersistedModel(primaryKeyObj);
 	}
 
-	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser getStatsUser(
-		long groupId, long userId) {
-		return _mbStatsUserLocalService.getStatsUser(groupId, userId);
-	}
-
-	@Override
-	public java.util.List<com.liferay.message.boards.kernel.model.MBStatsUser> getStatsUsersByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.PortalException {
-		return _mbStatsUserLocalService.getStatsUsersByGroupId(groupId, start,
-			end);
-	}
-
-	@Override
-	public int getStatsUsersByGroupIdCount(long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException {
-		return _mbStatsUserLocalService.getStatsUsersByGroupIdCount(groupId);
-	}
-
-	@Override
-	public java.util.List<com.liferay.message.boards.kernel.model.MBStatsUser> getStatsUsersByUserId(
-		long userId) {
-		return _mbStatsUserLocalService.getStatsUsersByUserId(userId);
-	}
-
 	/**
 	* Updates the message boards stats user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -328,29 +259,9 @@ public class MBStatsUserLocalServiceWrapper implements MBStatsUserLocalService,
 	* @return the message boards stats user that was updated
 	*/
 	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser updateMBStatsUser(
-		com.liferay.message.boards.kernel.model.MBStatsUser mbStatsUser) {
+	public com.liferay.message.boards.model.MBStatsUser updateMBStatsUser(
+		com.liferay.message.boards.model.MBStatsUser mbStatsUser) {
 		return _mbStatsUserLocalService.updateMBStatsUser(mbStatsUser);
-	}
-
-	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser updateStatsUser(
-		long groupId, long userId) {
-		return _mbStatsUserLocalService.updateStatsUser(groupId, userId);
-	}
-
-	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser updateStatsUser(
-		long groupId, long userId, java.util.Date lastPostDate) {
-		return _mbStatsUserLocalService.updateStatsUser(groupId, userId,
-			lastPostDate);
-	}
-
-	@Override
-	public com.liferay.message.boards.kernel.model.MBStatsUser updateStatsUser(
-		long groupId, long userId, int messageCount, java.util.Date lastPostDate) {
-		return _mbStatsUserLocalService.updateStatsUser(groupId, userId,
-			messageCount, lastPostDate);
 	}
 
 	@Override
