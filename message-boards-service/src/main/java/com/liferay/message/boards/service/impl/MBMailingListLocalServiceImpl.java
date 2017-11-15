@@ -57,7 +57,7 @@ public class MBMailingListLocalServiceImpl
 			boolean active, ServiceContext serviceContext)
 		throws PortalException {
 
-		// Mailing list
+		// Message boards mailing list
 
 		User user = _userLocalService.getUser(userId);
 
@@ -157,7 +157,7 @@ public class MBMailingListLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		// Mailing list
+		// Message boards mailing list
 
 		validate(
 			emailAddress, inServerName, inUserName, outEmailAddress, outCustom,
