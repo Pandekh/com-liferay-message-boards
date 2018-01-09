@@ -101,22 +101,23 @@ public class UpgradeUnsupportedGuestPermissions implements UpgradeStep {
 				_resourceActionLocalService.fetchResourceAction(
 					resourceName, actionId);
 
-			if (resourceAction != null) {
-				ActionableDynamicQuery actionableDynamicQuery =
-					_resourcePermissionLocalService.getActionableDynamicQuery();
-
-				actionableDynamicQuery.setAddCriteriaMethod(
-					dynamicQuery -> dynamicQuery.add(
-						RestrictionsFactoryUtil.eq("name", resourceName)));
-
-				actionableDynamicQuery.setPerformActionMethod(
-					(ResourcePermission resourcePermission) -> {
-						_removeResourceAction(
-							resourcePermission, resourceAction);
-					});
-
-				actionableDynamicQuery.performActions();
+			if (resourceAction == null) {
+				return;
 			}
+
+			ActionableDynamicQuery actionableDynamicQuery =
+				_resourcePermissionLocalService.getActionableDynamicQuery();
+
+			actionableDynamicQuery.setAddCriteriaMethod(
+				dynamicQuery -> dynamicQuery.add(
+					RestrictionsFactoryUtil.eq("name", resourceName)));
+
+			actionableDynamicQuery.setPerformActionMethod(
+				(ResourcePermission resourcePermission) -> {
+					_removeResourceAction(resourcePermission, resourceAction);
+				});
+
+			actionableDynamicQuery.performActions();
 		}
 		catch (PortalException pe) {
 			throw new UpgradeException(pe);
