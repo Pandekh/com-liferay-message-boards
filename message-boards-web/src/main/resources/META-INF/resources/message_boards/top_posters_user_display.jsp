@@ -24,7 +24,9 @@ MBStatsUser statsUser = (MBStatsUser)row.getObject();
 String[] ranks = MBUtil.getUserRank(mbGroupServiceSettings, themeDisplay.getLanguageId(), statsUser);
 %>
 
-<liferay-ui:user-display userId="<%= statsUser.getUserId() %>">
+<liferay-ui:user-display
+	userId="<%= statsUser.getUserId() %>"
+>
 	<c:if test="<%= Validator.isNotNull(ranks[0]) %>">
 		<div class="thread-user-rank">
 			<span><liferay-ui:message key="rank" />:</span> <%= HtmlUtil.escape(ranks[0]) %>

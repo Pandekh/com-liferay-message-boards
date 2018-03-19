@@ -32,11 +32,7 @@ Boolean showSearchFm = GetterUtil.getBoolean(ParamUtil.getString(request, "showS
 		messageBoardsHomeURL.setParameter("tag", StringPool.BLANK);
 		%>
 
-		<aui:nav-item
-			href="<%= messageBoardsHomeURL.toString() %>"
-			label="threads"
-			selected='<%= navItemSelected.equals("threads") %>'
-		/>
+		<aui:nav-item href="<%= messageBoardsHomeURL.toString() %>" label="threads" selected='<%= navItemSelected.equals("threads") %>' />
 
 		<%
 		PortletURL viewStatisticsURL = renderResponse.createRenderURL();
@@ -44,11 +40,7 @@ Boolean showSearchFm = GetterUtil.getBoolean(ParamUtil.getString(request, "showS
 		viewStatisticsURL.setParameter("mvcRenderCommandName", "/message_boards/view_statistics");
 		%>
 
-		<aui:nav-item
-			href="<%= viewStatisticsURL.toString() %>"
-			label="statistics"
-			selected='<%= navItemSelected.equals("statistics") %>'
-		/>
+		<aui:nav-item href="<%= viewStatisticsURL.toString() %>" label="statistics" selected='<%= navItemSelected.equals("statistics") %>' />
 
 		<%
 		PortletURL bannedUsersURL = renderResponse.createRenderURL();
@@ -56,11 +48,7 @@ Boolean showSearchFm = GetterUtil.getBoolean(ParamUtil.getString(request, "showS
 		bannedUsersURL.setParameter("mvcRenderCommandName", "/message_boards/view_banned_users");
 		%>
 
-		<aui:nav-item
-			href="<%= bannedUsersURL.toString() %>"
-			label="banned-users"
-			selected='<%= navItemSelected.equals("banned-users") %>'
-		/>
+		<aui:nav-item href="<%= bannedUsersURL.toString() %>" label="banned-users" selected='<%= navItemSelected.equals("banned-users") %>' />
 	</aui:nav>
 
 	<c:if test="<%= showSearchFm %>">
